@@ -1,3 +1,0 @@
-/**
- * This folder for documentation
- */

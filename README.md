@@ -1,6 +1,5 @@
 # Wikidata Query with AI
 
-[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kaliacad/wikidataqueriIA/graphs/commit-activity)
 [![GitHub contributors](https://badgen.net/github/contributors/kaliacad/wikidataqueriIA)](https://GitHub.com/kaliacad/wikidataqueriIA/graphs/contributors/)
@@ -9,17 +8,14 @@
 [![GitHub issues](https://badgen.net/github/issues/kaliacad/wikidataqueriIA/)](https://GitHub.com/kaliacad/wikidataqueriIA/issues/)
 [![GitHub commits](https://badgen.net/github/commits/kaliacad/wikidataqueriIA)](https://GitHub.com/kaliacad/wikidataqueriIA/commit/)
 [![GitHub total-pull-requests](https://badgen.net/github/prs/kaliacad/wikidataqueriIA)](https://GitHub.com/kaliacad/wikidataqueriIA/pull/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Github tag](https://badgen.net/github/tag/kaliacad/wikidataqueriIA)](https://github.com/Naereen/kaliacad/wikidataqueriIA/tags/)
-[![Latest release](https://badgen.net/github/release/kaliacad/wikidataqueriIA)](https://github.com/kaliacad/wikidataqueriIA/releases)
 
 ### WikidataQuery + Resultat
 
-![](./public/screenshots/wikidata-query-with-data.png)
+![](./screenshots/wikidata-query-with-data.png)
 
 ### WikidataQuery + While fetching data
 
-![](./public/screenshots/wikidata-query-white-fetching-data.png)
+![](./screenshots/wikidata-query-white-fetching-data.png)
 
 This project enables users to write and execute SPARQL queries on Wikidata directly within an Express.js application, without needing to visit the Wikidata website.
 

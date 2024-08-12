@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('*', function (_: Request, res: Response) {
-  res.sendStatus(404);
+  res.send("Welcome to wikidata query ! 😊😊😊");
 });
 
 export default app;

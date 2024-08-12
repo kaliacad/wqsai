@@ -1,5 +1,5 @@
 {
-  "name": "wikidata-query",
+  "name": "wikidata-query-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,13 @@
     "build": "pnpm install && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "wikidata",
+    "wikidata-query-ai",
+    "open-source-project",
+    "sparql"
+  ],
+  "author": "KaliAcademy",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
