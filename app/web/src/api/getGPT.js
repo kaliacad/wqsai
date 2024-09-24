@@ -3,7 +3,7 @@
 async function getGPT(question) {
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 
-  console.log("question");
+  console.log("question:");
 
   try {
     const response = await fetch(apiUrl, {
