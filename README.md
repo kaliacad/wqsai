@@ -44,6 +44,18 @@ This project enables users to write and execute SPARQL queries on Wikidata direc
    npm install
    ```
 
+3. Add .env file
+   ```sh
+   app
+      - api
+      - docs
+      - web
+         .env.example
+   ```
+   ```js
+   VITE_OPEN_AI_API_KEY=AIzaSyExample-YourGoogleAPIKey12345678
+   ```
+
 ## Usage
 
 1. Start the development server:
