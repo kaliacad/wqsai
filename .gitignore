@@ -29,11 +29,4 @@ src/css/guide.md
 
 env.js
 
-
-/node_modules
-
-/app/api/node_modules
-
-/app/web/node_modules
-
-/app/web/.env
+.env
