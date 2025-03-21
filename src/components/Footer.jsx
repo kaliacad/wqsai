@@ -8,32 +8,32 @@ import { IoBugSharp } from "react-icons/io5";
 export default function Footer() {
   const media = [
     {
-      icon: <FaReadme size={25} />,
+      icon: <FaReadme size={15} />,
       link: "https://github.com/kaliacad/wikidataqueriIA/wiki",
       title: "Documentation",
     },
     {
-      icon: <FaCode size={25} />,
+      icon: <FaCode size={15} />,
       link: "https://github.com/kaliacad/wikidataqueriIA",
       title: "View source",
     },
     {
-      icon: <IoBugSharp size={25} />,
+      icon: <IoBugSharp size={15} />,
       link: "https://github.com/kaliacad/wikidataqueriIA/issues",
       title: "Report an issue",
     },
     {
-      icon: <LuMessagesSquare size={25} />,
+      icon: <LuMessagesSquare size={15} />,
       link: "https://github.com/kaliacad/wikidataqueriIA/issues",
       title: "Feedback",
     },
     {
-      icon: <FaUsers size={25} />,
+      icon: <FaUsers size={15} />,
       link: "https://github.com/kaliacad",
       title: "Developed by Kali Academy",
     },
     {
-      icon: <MdOutlineAttribution size={25} />,
+      icon: <MdOutlineAttribution size={15} />,
       link: "https://kaliacademy.org/",
       title: "kaliacad",
     },
@@ -46,7 +46,7 @@ export default function Footer() {
           href={`${m?.link}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2"
+          className="flex items-center gap-1.5"
         >
           <div>{m.icon}</div>
           <p className="font-bold">{m.title}</p>
@@ -56,8 +56,8 @@ export default function Footer() {
   });
 
   return (
-    <footer className="flex items-center h-[50px] absolute bottom-0 w-full bg-[#506efa] opacity-100">
-      <ul className="text-white flex justify-around items-center w-full">
+    <footer className="flex items-center justify-center h-auto py-2 absolute bottom-0 w-full bg-[#506efa] opacity-100">
+      <ul className="text-white flex flex-wrap justify-around items-center w-full text-xs sm:text-sm">
         {showMenu}
       </ul>
     </footer>
