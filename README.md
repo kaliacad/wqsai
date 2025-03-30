@@ -35,25 +35,12 @@ This project enables users to write and execute SPARQL queries on Wikidata direc
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/kaliacad/wikidataqueriIA.git
-   cd wikidataqueriIA
+   git clone https://github.com/kaliacad/wqsai 
+   cd wqsai
    ```
-
 2. Install dependencies:
    ```sh
    npm install
-   ```
-
-3. Add .env file
-   ```sh
-   app
-      - api
-      - docs
-      - web
-         .env.example
-   ```
-   ```js
-   VITE_OPEN_AI_API_KEY=AIzaSyExample-YourGoogleAPIKey12345678
    ```
 
 ## Usage
