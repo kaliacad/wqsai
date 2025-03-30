@@ -6,7 +6,11 @@ import Resultat from "./components/Resultat";
 import Split from "react-split";
 import Footer from "./components/Footer";
 import getGPT from "./api/getGPT";
-
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 
 function App() {
   const { sparqlText, setSPARQLText } = useContext(TextContext);
@@ -42,32 +46,30 @@ function App() {
 
   return (
     <main role="main" className="h-screen max-h-full w-[100%] flex flex-col">
-      <div className="flex-1 h-[100%]">
-        <Split
-          className="split"
-          sizes={[50, 50]}
-          minSize={600}
-          expandToMin={true}
-          gutterSize={10}
-          gutterAlign="center"
-          snapOffset={30}
-          dragInterval={1}
-          direction="horizontal"
-          cursor="col-resize"
-        >
-          <div className="flex flex-col">
-            <Ai
-              text={text}
-              handleSubmit={handleSubmit}
-              message={message}
-              input={input}
-              handleChange={handleChange}
-            />
-            <Query text={text} />
-          </div>
+      <ResizablePanelGroup direction="horizontal">
+        <ResizablePanel>
+          <ResizablePanelGroup direction="vertical">
+            <ResizablePanel>
+              <Query text={text} />
+            </ResizablePanel>
+            <ResizableHandle />
+            <ResizablePanel>
+              <Ai
+                text={text}
+                handleSubmit={handleSubmit}
+                message={message}
+                input={input}
+                handleChange={handleChange}
+              />
+            </ResizablePanel>
+          </ResizablePanelGroup>
+        </ResizablePanel>
+
+        <ResizableHandle />
+        <ResizablePanel>
           <Resultat text={text} />
-        </Split>
-      </div>
+        </ResizablePanel>
+      </ResizablePanelGroup>
       <Footer />
     </main>
   );
