@@ -4,33 +4,36 @@ import { FaCode } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineAttribution } from "react-icons/md";
 import { IoBugSharp } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+
+  const { t } = useTranslation();
   const media = [
     {
       icon: <FaReadme size={25} />,
       link: "https://github.com/kaliacad/wikidataqueriIA/wiki",
-      title: "Documentation",
+      title: `${t("footer.text1")}`,
     },
     {
       icon: <FaCode size={25} />,
       link: "https://github.com/kaliacad/wikidataqueriIA",
-      title: "View source",
+      title: `${t("footer.text2")}`,
     },
     {
       icon: <IoBugSharp size={25} />,
       link: "https://github.com/kaliacad/wikidataqueriIA/issues",
-      title: "Report an issue",
+      title: `${t("footer.text3")}`,
     },
     {
       icon: <LuMessagesSquare size={25} />,
       link: "https://github.com/kaliacad/wikidataqueriIA/issues",
-      title: "Feedback",
+      title: `${t("footer.text4")}`,
     },
     {
       icon: <FaUsers size={25} />,
       link: "https://github.com/kaliacad",
-      title: "Developed by Kali Academy",
+      title:`${t("footer.text5")}`,
     },
     {
       icon: <MdOutlineAttribution size={25} />,
