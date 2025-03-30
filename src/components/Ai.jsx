@@ -1,13 +1,18 @@
 import Markdown from "react-markdown";
-import { LuSendHorizonal } from "react-icons/lu";
+// import { LuSendHorizonal } from "react-icons/lu";
 import { FaSpinner } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
+import { HiOutlineCursorArrowRipple } from "react-icons/hi2";
+
+import { useTranslation } from "react-i18next";
 
 export default function Ai({ handleSubmit, message, input, handleChange }) {
   const [isLoading, setIsLoading] = useState(true);
   const handleClick = () => setIsLoading(false);
   useEffect(() => setIsLoading(true), [message]);
+
+  const { t } = useTranslation();
   return (
     <aside className=" flex-1 border-t border-[#eee]">
       <div className="h-[45vh] p-4 overflow-y-scroll scrollbar-thumb-[h-1] scrollbar-track-gray-700">
@@ -23,7 +28,7 @@ export default function Ai({ handleSubmit, message, input, handleChange }) {
         >
           <input
             type="text"
-            placeholder="Ecrivez votre question"
+            placeholder={t("ai.text1")}
             className="flex-grow  rounded-l-full pl-3 text-sm bg-white outline-none"
             value={input}
             onChange={handleChange}
@@ -34,7 +39,7 @@ export default function Ai({ handleSubmit, message, input, handleChange }) {
               className="cursor-pointer rounded-r-full"
               onClick={handleClick}
             >
-              <LuSendHorizonal size={25} color="#506efa" />
+              <HiOutlineCursorArrowRipple size={25} color="#506efa" />
             </button>
           ) : (
             <button>
