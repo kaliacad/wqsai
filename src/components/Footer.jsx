@@ -57,7 +57,7 @@ export default function Footer() {
 
   return (
     <footer className="flex items-center h-[50px] absolute bottom-0 w-full bg-[#506efa] opacity-100">
-      <ul className="text-white flex justify-around items-center w-full">
+      <ul className="text-white flex flex-wrap justify-around items-center w-full">
         {showMenu}
       </ul>
     </footer>
