@@ -12,6 +12,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import ApiKeyModal from "@/components/ApiKeyModal";
 
 function App() {
   const { sparqlText, setSPARQLText } = useContext(TextContext);
@@ -21,13 +22,13 @@ function App() {
   const [expandedSections, setExpandedSections] = useState({
     query: true,
     ai: true,
-    resultat: true
+    resultat: true,
   });
 
   const toggleSection = (section) => {
-    setExpandedSections(prev => ({
+    setExpandedSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
@@ -58,22 +59,33 @@ function App() {
 
   return (
     <main role="main" className="h-screen max-h-full w-full flex flex-col">
+      <ApiKeyModal />
       <div className="flex-grow overflow-auto">
         {/* Desktop layout - horizontal split for the top section */}
         <div className="hidden md:block h-full">
-          <ResizablePanelGroup direction="vertical" className="min-h-[200px] h-full">
+          <ResizablePanelGroup
+            direction="vertical"
+            className="min-h-[200px] h-full"
+          >
             {/* First row with Query and AI side by side */}
             <ResizablePanel defaultSize={60} minSize={20}>
-              <ResizablePanelGroup direction="horizontal" className="min-h-[100px]">
+              <ResizablePanelGroup
+                direction="horizontal"
+                className="min-h-[100px]"
+              >
                 {/* Query Section */}
                 <ResizablePanel defaultSize={50} minSize={30}>
                   <div className="border-cyan-900 border-2 h-full flex flex-col">
-                    <div 
+                    <div
                       className="flex justify-between items-center p-2 bg-cyan-50 cursor-pointer"
                       onClick={() => toggleSection("query")}
                     >
                       <h3 className="font-medium">Query</h3>
-                      {expandedSections.query ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                      {expandedSections.query ? (
+                        <ChevronUp size={18} />
+                      ) : (
+                        <ChevronDown size={18} />
+                      )}
                     </div>
                     {expandedSections.query && (
                       <div className="p-2 overflow-auto flex-grow">
@@ -82,18 +94,22 @@ function App() {
                     )}
                   </div>
                 </ResizablePanel>
-                
+
                 <ResizableHandle withHandle />
-                
+
                 {/* AI Section */}
                 <ResizablePanel defaultSize={50} minSize={30}>
                   <div className="border-cyan-900 border-2 h-full flex flex-col">
-                    <div 
+                    <div
                       className="flex justify-between items-center p-2 bg-cyan-50 cursor-pointer"
                       onClick={() => toggleSection("ai")}
                     >
                       <h3 className="font-medium">AI</h3>
-                      {expandedSections.ai ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                      {expandedSections.ai ? (
+                        <ChevronUp size={18} />
+                      ) : (
+                        <ChevronDown size={18} />
+                      )}
                     </div>
                     {expandedSections.ai && (
                       <div className="p-2 overflow-auto flex-grow">
@@ -110,18 +126,22 @@ function App() {
                 </ResizablePanel>
               </ResizablePanelGroup>
             </ResizablePanel>
-            
+
             <ResizableHandle withHandle />
-            
+
             {/* Second row with Resultat */}
             <ResizablePanel defaultSize={50} minSize={20}>
               <div className="border-cyan-900 border-2 h-full flex flex-col">
-                <div 
+                <div
                   className="flex justify-between items-center p-2 bg-cyan-50 cursor-pointer"
                   onClick={() => toggleSection("resultat")}
                 >
                   <h3 className="font-medium">Result</h3>
-                  {expandedSections.resultat ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  {expandedSections.resultat ? (
+                    <ChevronUp size={18} />
+                  ) : (
+                    <ChevronDown size={18} />
+                  )}
                 </div>
                 {expandedSections.resultat && (
                   <div className="p-2 overflow-auto flex-grow">
@@ -135,16 +155,23 @@ function App() {
 
         {/* Mobile layout - single column with 3 rows */}
         <div className="md:hidden h-full">
-          <ResizablePanelGroup direction="vertical" className="min-h-[200px] h-full">
+          <ResizablePanelGroup
+            direction="vertical"
+            className="min-h-[200px] h-full"
+          >
             {/* Query Section */}
             <ResizablePanel defaultSize={33} minSize={15}>
               <div className="border-cyan-900 border-2 h-full flex flex-col">
-                <div 
+                <div
                   className="flex justify-between items-center p-2 bg-cyan-50 cursor-pointer"
                   onClick={() => toggleSection("query")}
                 >
                   <h3 className="font-medium">Query</h3>
-                  {expandedSections.query ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  {expandedSections.query ? (
+                    <ChevronUp size={18} />
+                  ) : (
+                    <ChevronDown size={18} />
+                  )}
                 </div>
                 {expandedSections.query && (
                   <div className="p-2 overflow-auto flex-grow">
@@ -153,18 +180,22 @@ function App() {
                 )}
               </div>
             </ResizablePanel>
-            
+
             <ResizableHandle withHandle />
-            
+
             {/* AI Section */}
             <ResizablePanel defaultSize={33} minSize={15}>
               <div className="border-cyan-900 border-2 h-full flex flex-col">
-                <div 
+                <div
                   className="flex justify-between items-center p-2 bg-cyan-50 cursor-pointer"
                   onClick={() => toggleSection("ai")}
                 >
                   <h3 className="font-medium">AI</h3>
-                  {expandedSections.ai ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  {expandedSections.ai ? (
+                    <ChevronUp size={18} />
+                  ) : (
+                    <ChevronDown size={18} />
+                  )}
                 </div>
                 {expandedSections.ai && (
                   <div className="p-2 overflow-auto flex-grow">
@@ -179,18 +210,22 @@ function App() {
                 )}
               </div>
             </ResizablePanel>
-            
+
             <ResizableHandle withHandle />
-            
+
             {/* Resultat Section */}
             <ResizablePanel defaultSize={33} minSize={15}>
               <div className="border-cyan-900 border-2 h-full flex flex-col">
-                <div 
+                <div
                   className="flex justify-between items-center p-2 bg-cyan-50 cursor-pointer"
                   onClick={() => toggleSection("resultat")}
                 >
                   <h3 className="font-medium">Result</h3>
-                  {expandedSections.resultat ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  {expandedSections.resultat ? (
+                    <ChevronUp size={18} />
+                  ) : (
+                    <ChevronDown size={18} />
+                  )}
                 </div>
                 {expandedSections.resultat && (
                   <div className="p-2 overflow-auto flex-grow">
@@ -202,7 +237,7 @@ function App() {
           </ResizablePanelGroup>
         </div>
       </div>
-      
+
       <Footer />
     </main>
   );
