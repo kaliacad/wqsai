@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+
 import { TextContext } from "./contexts/textContext";
 import Ai from "./components/Ai";
 import Query from "./components/Query";
