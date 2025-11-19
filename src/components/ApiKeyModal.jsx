@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/hooks/use-toast";
+import { DialogDescription } from "./ui/dialog";
 
 export default function ApiKeyModal() {
   const [apiKey, setApiKey] = useState("");
@@ -29,6 +30,7 @@ export default function ApiKeyModal() {
       toast({
         title: "Invalid API Key",
         description: "Please enter a valid API key.",
+        variant: "destructive",
       });
       return;
     }
@@ -46,16 +48,17 @@ export default function ApiKeyModal() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Authenticate API Access</DialogTitle>
-          <p>
+          <DialogDescription>
             You must have a valid{" "}
             <a
               href="https://platform.openai.com/api-keys"
               className="text-green-500 hover:underline"
+              target="_blank"
             >
               OpenAI API key
             </a>{" "}
             to connect the playground to your own OpenAI platform account.
-          </p>
+          </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
           <Label htmlFor="apiKey" className="font-bold">
@@ -63,6 +66,7 @@ export default function ApiKeyModal() {
             <a
               href="https://platform.openai.com/api-keys"
               className="text-green-500 hover:underline"
+              target="_blank"
             >
               OpenAI API key
             </a>
@@ -76,11 +80,7 @@ export default function ApiKeyModal() {
               placeholder="sk-..."
             />
           </div>
-          <Button
-            onClick={handleSave}
-            disabled={loading}
-            className="w-full bg-blue-800"
-          >
+          <Button onClick={handleSave} disabled={loading} className="w-full">
             {loading ? "Saving..." : "Save API Key"}
           </Button>
         </div>
