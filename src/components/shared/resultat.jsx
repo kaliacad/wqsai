@@ -1,11 +1,9 @@
 import { useState } from "react";
-import Header from "./Header";
-import Element from "./Element";
-import { ResultatSqueletton } from './Loader';
+import Header from "../layout/header";
+import {Element} from "./element";
+import { ResultatSqueletton } from "./result-skeleton";
 
-
-
-export default function Resultat({ text }) {
+export function Resultat({ text }) {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -30,7 +28,7 @@ export default function Resultat({ text }) {
       })
       .finally(function () {
         setLoading(false);
-      })
+      });
   };
 
   const handleClickNext = () => {
@@ -78,26 +76,20 @@ export default function Resultat({ text }) {
       <aside className="h-[100%] flex flex-col">
         <Header onClick={onClick} />
         <div className="overflow-scroll">
-          {
-            'application/sparql-results+json'.split('').map(function (d, i) {
-              return (
-                <ResultatSqueletton
-                  key={`${d + i}`}
-                />
-              );
-            })
-          }
+          {"application/sparql-results+json".split("").map(function (d, i) {
+            return <ResultatSqueletton key={`${d + i}`} />;
+          })}
         </div>
       </aside>
-    )
+    );
   }
 
   return (
-    <aside className="h-[100%] flex flex-col">
+    <aside className="h-full min-h-0 flex flex-col">
       <Header onClick={onClick} />
-      <div className="">
+      <div className="min-h-0 flex-1">
         {data.length > 0 && (
-          <div className="h-[89vh] overflow-scroll">
+          <div className="h-full overflow-auto">
             <ul className="px-4 py-4">
               {res.map((item, index) => (
                 <Element key={index} item={item} />
@@ -115,12 +107,16 @@ export default function Resultat({ text }) {
                 {pageNumbers.map((pageNumber, index) => (
                   <button
                     key={index}
-                    onClick={() => typeof pageNumber === 'number' && handlePageClick(pageNumber)}
-                    className={`px-3 py-1 rounded-md mx-1 ${pageNumber === page
-                      ? "bg-[#506efa] text-white"
-                      : "bg-gray-300 text-gray-700"
-                      }`}
-                    disabled={typeof pageNumber !== 'number'}
+                    onClick={() =>
+                      typeof pageNumber === "number" &&
+                      handlePageClick(pageNumber)
+                    }
+                    className={`px-3 py-1 rounded-md mx-1 ${
+                      pageNumber === page
+                        ? "bg-[#506efa] text-white"
+                        : "bg-gray-300 text-gray-700"
+                    }`}
+                    disabled={typeof pageNumber !== "number"}
                   >
                     {pageNumber}
                   </button>

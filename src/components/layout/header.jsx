@@ -1,6 +1,6 @@
-import LanguageSelector from "./LanguageSelector";
+import  {LanguageSelector} from "../shared/language-selector";
 import { useTranslation } from "react-i18next";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { Play } from "lucide-react";
 
 export default function Header({ onClick }) {

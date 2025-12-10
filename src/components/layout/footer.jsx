@@ -1,42 +1,41 @@
-import { FaReadme } from "react-icons/fa";
-import { LuMessagesSquare } from "react-icons/lu";
-import { FaCode } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineAttribution } from "react-icons/md";
-import { IoBugSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
+import { BookOpenText } from "lucide-react";
+import { Code } from "lucide-react";
+import { Bug } from "lucide-react";
+import { MessagesSquareIcon } from "lucide-react";
 
-export default function Footer() {
-
+export function Footer() {
   const { t } = useTranslation();
   const media = [
     {
-      icon: <FaReadme size={25} />,
+      icon: <BookOpenText />,
       link: "https://github.com/kaliacad/wikidataqueriIA/wiki",
       title: `${t("footer.text1")}`,
     },
     {
-      icon: <FaCode size={25} />,
+      icon: <Code />,
       link: "https://github.com/kaliacad/wikidataqueriIA",
       title: `${t("footer.text2")}`,
     },
     {
-      icon: <IoBugSharp size={25} />,
+      icon: <Bug />,
       link: "https://github.com/kaliacad/wikidataqueriIA/issues",
       title: `${t("footer.text3")}`,
     },
     {
-      icon: <LuMessagesSquare size={25} />,
+      icon: <MessagesSquareIcon />,
       link: "https://github.com/kaliacad/wikidataqueriIA/issues",
       title: `${t("footer.text4")}`,
     },
     {
-      icon: <FaUsers size={25} />,
+      icon: <FaUsers size={24} />,
       link: "https://github.com/kaliacad",
-      title:`${t("footer.text5")}`,
+      title: `${t("footer.text5")}`,
     },
     {
-      icon: <MdOutlineAttribution size={25} />,
+      icon: <MdOutlineAttribution size={24} />,
       link: "https://kaliacademy.org/",
       title: "kaliacad",
     },
@@ -49,18 +48,18 @@ export default function Footer() {
           href={`${m?.link}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 text-sm text-primary hover:text-foreground transition-colors duration-200"
         >
           <div>{m.icon}</div>
-          <p className="font-bold">{m.title}</p>
+          <p>{m.title}</p>
         </a>
       </li>
     );
   });
 
   return (
-    <footer className="flex items-center h-[50px] absolute bottom-0 w-full bg-[#506efa] opacity-100">
-      <ul className="text-white flex flex-wrap justify-around items-center w-full">
+    <footer className="bg-background text-foreground flex items-center h-[50px] w-full border-t opacity-100 flex-shrink-0">
+      <ul className="flex flex-wrap justify-around items-center w-full">
         {showMenu}
       </ul>
     </footer>
