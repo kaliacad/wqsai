@@ -1,49 +1,44 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
   let defaultValue;
 
   const languages = [
-    { lang: "en", name: "English",flag: "🇬🇧" },
-    { lang: "fr", name: "Français",flag: "🇫🇷"  },
-    { lang: "es", name: "Español",flag: "🇪🇸"},
+    { lang: "en", name: "English", flag: "🇬🇧" },
+    { lang: "fr", name: "Français", flag: "🇫🇷" },
+    { lang: "es", name: "Español", flag: "🇪🇸" },
   ];
 
   const changeLanguage = (lang) => {
     window.localStorage.setItem("lang", lang);
     i18n.changeLanguage(lang);
-
   };
 
-  defaultValue = window.localStorage.getItem("lang")
-
-//   const index = defaultValue
-//   ? flags?.filter((item) => item.lang === defaultValue)
-//   : flags[0];
-
-// const [selected, setSelected] = useState(index[0]);
-
-
+  defaultValue = window.localStorage.getItem("lang");
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <select
-        onChange={(e) => changeLanguage(e.target.value)}
-        style={{
-          padding: "5px",
-          borderRadius: "5px",
-          border: "1px solid #ccc",
-        }}
-      >
-        {languages.map(({ lang, name,flag}) => (
-          <option key={lang} value={lang}>
-             {name} {flag}
-          </option>
-        ))}
-      </select>
+      <Select onValueChange={changeLanguage} defaultValue={defaultValue}>
+        <SelectTrigger className="w-[140px]">
+          <SelectValue placeholder="Select language" />
+        </SelectTrigger>
+        <SelectContent>
+          {languages.map(({ lang, name, flag }) => (
+            <SelectItem key={lang} value={lang}>
+              {flag} <span>{"  "}</span> {name}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 };
