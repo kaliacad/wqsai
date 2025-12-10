@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const LanguageSelector = () => {
+export function LanguageSelector() {
   const { i18n } = useTranslation();
   let defaultValue;
 
@@ -41,6 +41,4 @@ const LanguageSelector = () => {
       </Select>
     </div>
   );
-};
-
-export default LanguageSelector;
+}

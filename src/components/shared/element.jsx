@@ -1,4 +1,4 @@
-export default function Element({ item }) {
+export function Element({ item }) {
   const itemArray = Object.keys(item);
   console.log(item[itemArray[0]]);
   return (

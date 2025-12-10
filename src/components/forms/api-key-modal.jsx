@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/hooks/use-toast";
-import { DialogDescription } from "./ui/dialog";
+import { DialogDescription } from "../ui/dialog";
 
-export default function ApiKeyModal() {
+export function ApiKeyModal() {
   const [apiKey, setApiKey] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
