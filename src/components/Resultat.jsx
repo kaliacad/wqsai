@@ -77,7 +77,7 @@ export default function Resultat({ text }) {
     return (
       <aside className="h-[100%] flex flex-col">
         <Header onClick={onClick} />
-        <div className="px-4 py-4 overflow-scroll">
+        <div className="overflow-scroll">
           {
             'application/sparql-results+json'.split('').map(function (d, i) {
               return (
