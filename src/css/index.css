@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   user-select: none;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 :root {
@@ -73,7 +73,6 @@ footer {
   }
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -130,8 +129,6 @@ footer {
     --chart-5: 340 75% 55%;
   }
 }
-
-
 
 @layer base {
   * {
