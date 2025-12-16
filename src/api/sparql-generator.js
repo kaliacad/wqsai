@@ -29,7 +29,18 @@ export async function generateSparqlQuery(question) {
       const errorBody = await response.json().catch(() => ({}));
       const detail =
         errorBody?.error?.message || response.statusText || "Erreur API OpenAI";
-      throw new Error(detail);
+
+      if (errorBody?.error) {
+        const err = new Error(errorBody.error.message || detail);
+        err.type = errorBody.error.type;
+        err.code = errorBody.error.code;
+        err.status = response.status;
+        throw err;
+      }
+
+      const err = new Error(detail);
+      err.status = response.status;
+      throw err;
     }
 
     const data = await response.json();
