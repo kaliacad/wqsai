@@ -1,11 +1,7 @@
-import { useState } from "react";
-import { TextContext } from "../contexts/text-context";
+import { useTextStore } from "../stores/useTextStore";
 
 export function TextProvider({ children }) {
-  const [sparqlText, setSPARQLText] = useState("");
-  return (
-    <TextContext.Provider value={{ sparqlText, setSPARQLText }}>
-      {children}
-    </TextContext.Provider>
-  );
+  // Provider kept as a passthrough for backward compatibility.
+  // App now uses `useTextStore` directly.
+  return children;
 }
