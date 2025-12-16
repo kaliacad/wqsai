@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect } from "react";
-import { TextContext } from "./contexts/text-context";
+import { useState, useEffect } from "react";
+import { useTextStore } from "./stores/useTextStore";
 import { Query } from "./components/shared/query";
 import { MonacoEditor } from "./components/shared/editor";
 import { Resultat } from "./components/shared/resultat";
@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/resizable";
 
 export default function App() {
-  const { sparqlText, setSPARQLText } = useContext(TextContext);
+  const sparqlText = useTextStore((s) => s.sparqlText);
+  const setSPARQLText = useTextStore((s) => s.setSPARQLText);
   const [input, setInput] = useState("");
   const [message, setMessage] = useState([]);
   const [text, setText] = useState("");
