@@ -40,10 +40,22 @@ export default function App() {
 
       setInput("");
     } catch (err) {
+      const known = [401, 403, 429, 500, 503];
+      const knownTypes = ["insufficient_quota"];
+      const isKnown = known.includes(err?.status) || knownTypes.includes(err?.type) || known.includes(Number(err?.code));
+
+      // choose variant: warnings for auth/quota/rate limits, info for server messages, destructive for unknown
+      let variant = undefined;
+      if (!isKnown) variant = "destructive";
+      else if (err?.type === "insufficient_quota" || err?.status === 429) variant = "warning";
+      else if (err?.status === 401 || err?.status === 403) variant = "warning";
+      else if (err?.status === 500 || err?.status === 503) variant = "info";
+      else variant = "info";
+
       toast({
-        title: "Erreur",
+        title: isKnown ? "Info" : "Erreur inconnue",
         description: err?.message || "Impossible de générer la requête.",
-        variant: "destructive",
+        variant,
       });
     } finally {
       setIsLoading(false);
@@ -57,10 +69,21 @@ export default function App() {
       // For now, just log or handle as needed
       console.log(result);
     } catch (err) {
+      const known = [401, 403, 429, 500, 503];
+      const knownTypes = ["insufficient_quota"];
+      const isKnown = known.includes(err?.status) || knownTypes.includes(err?.type) || known.includes(Number(err?.code));
+
+      let variant = undefined;
+      if (!isKnown) variant = "destructive";
+      else if (err?.type === "insufficient_quota" || err?.status === 429) variant = "warning";
+      else if (err?.status === 401 || err?.status === 403) variant = "warning";
+      else if (err?.status === 500 || err?.status === 503) variant = "info";
+      else variant = "info";
+
       toast({
-        title: "Erreur",
+        title: isKnown ? "Info" : "Erreur inconnue",
         description: err?.message || "Impossible de générer la requête.",
-        variant: "destructive",
+        variant,
       });
     }
   };
