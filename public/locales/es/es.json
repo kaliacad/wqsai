@@ -1,0 +1,15 @@
+{
+  "header": {
+    "text1": "Ejecutar consulta"
+  },
+  "ai": {
+    "text1": "Escribe tu pregunta"
+  },
+  "footer": {
+    "text1": "Documentación",
+    "text2": "Ver código fuente",
+    "text3": "Reportar un problema",
+    "text4": "Comentarios",
+    "text5": "Desarrollado por Kali Academy"
+  }
+}
