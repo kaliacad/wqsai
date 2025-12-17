@@ -11,22 +11,22 @@ export function Footer() {
   const media = [
     {
       icon: <BookOpenText />,
-      link: "https://github.com/kaliacad/wikidataqueriIA/wiki",
+      link: "https://github.com/kaliacad/wqsai/wiki",
       title: `${t("footer.text1")}`,
     },
     {
       icon: <Code />,
-      link: "https://github.com/kaliacad/wikidataqueriIA",
+      link: "https://github.com/kaliacad/wqsai",
       title: `${t("footer.text2")}`,
     },
     {
       icon: <Bug />,
-      link: "https://github.com/kaliacad/wikidataqueriIA/issues",
+      link: "https://github.com/kaliacad/wqsai/issues",
       title: `${t("footer.text3")}`,
     },
     {
       icon: <MessagesSquareIcon />,
-      link: "https://github.com/kaliacad/wikidataqueriIA/issues",
+      link: "https://github.com/kaliacad/wqsai/issues",
       title: `${t("footer.text4")}`,
     },
     {
@@ -43,23 +43,27 @@ export function Footer() {
 
   const showMenu = media.map(function (m, i) {
     return (
-      <li key={i}>
+      // Added responsive widths to list items so they wrap nicely on small screens
+      <li key={i} className="my-1 shrink-0 md:w-auto">
         <a
           href={`${m?.link}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm text-primary hover:text-foreground transition-colors duration-200"
+          aria-label={m.title}
+          className="flex items-center gap-2 text-xs sm:text-sm text-primary hover:text-foreground transition-colors duration-200"
         >
-          <div>{m.icon}</div>
-          <p>{m.title}</p>
+          <div className="shrink-0">{m.icon}</div>
+          <p className="hidden lg:block truncate max-w-[10rem] sm:max-w-[12rem]">{m.title}</p>
         </a>
       </li>
     );
   });
 
   return (
-    <footer className="bg-background text-foreground flex items-center h-[50px] w-full border-t opacity-100 flex-shrink-0">
-      <ul className="flex flex-wrap justify-around items-center w-full">
+    // Allow height to grow on small screens, keep fixed height on md+; add small vertical padding on mobile
+    <footer className="bg-background text-foreground flex items-center w-full border-t opacity-100 flex-shrink-0 h-auto md:h-[50px] py-2 md:py-0">
+      {/* Center items on mobile, spread out on md+; add gaps and horizontal padding */}
+      <ul className="flex flex-nowrap overflow-x-auto justify-center md:justify-around items-center w-full gap-2 sm:gap-3 md:gap-6 px-2">
         {showMenu}
       </ul>
     </footer>
