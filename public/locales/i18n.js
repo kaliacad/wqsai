@@ -2,6 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import enLang from "../locales/en/en.json"
 import frLang from "../locales/fr/fr.json"
+// ADD: Spanish translations import
+import esLang from "../locales/es/es.json"
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { init } from '../../src/functions';
 
@@ -18,6 +20,8 @@ i18n
     resources: {
       en: { translation: enLang },
       fr: { translation: frLang },
+      // ADD: Register Spanish
+      es: { translation: esLang },
       // es: { translation: esLang },
       // pt: { translation: ptLang },
       // zh_CN: { translation: zh_CNLang },
@@ -25,7 +29,6 @@ i18n
     lng: lang,
     fallbackLng: 'fr',
     debug: false,
-
     interpolation: {
       escapeValue: false,
     }
