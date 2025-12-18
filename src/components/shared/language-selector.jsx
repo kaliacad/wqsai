@@ -15,6 +15,7 @@ export function LanguageSelector() {
   const languages = [
     { lang: "en", name: "English", flag: "🇬🇧" },
     { lang: "fr", name: "Français", flag: "🇫🇷" },
+    { lang: "sw", name: "Kiswahili", flag: "🇨🇩" },
     { lang: "es", name: "Español", flag: "🇪🇸" },
   ];
 

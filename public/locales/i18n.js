@@ -1,9 +1,10 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import enLang from "../locales/en/en.json"
-import frLang from "../locales/fr/fr.json"
+import enLang from "../locales/en/en.json";
+import frLang from "../locales/fr/fr.json";
 // ADD: Spanish translations import
-import esLang from "../locales/es/es.json"
+import esLang from "../locales/es/es.json";
+import swLang from "../locales/sw/sw.json";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { init } from '../../src/functions';
 
@@ -22,6 +23,7 @@ i18n
       fr: { translation: frLang },
       // ADD: Register Spanish
       es: { translation: esLang },
+      sw: { translation: swLang },
       // es: { translation: esLang },
       // pt: { translation: ptLang },
       // zh_CN: { translation: zh_CNLang },
