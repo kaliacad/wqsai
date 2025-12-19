@@ -56,6 +56,34 @@ This project enables users to write and execute SPARQL queries on Wikidata direc
 
 2. Open your browser and navigate to `http://localhost:5173`.
 
+## Getting Started
+
+To get started with querying, you can run this example SPARQL query to see the results:
+
+```sparql
+SELECT ?pays ?paysLabel ?capitaleLabel ?codeISO2 WHERE {
+  # Trouver les instances de pays (wd:Q6256)
+  ?pays wdt:P31 wd:Q6256.
+  
+  # Filtrer pour les pays du continent africain (wd:Q15)
+  ?pays wdt:P30 wd:Q15.
+  
+  # Optionnel : obtenir la capitale
+  OPTIONAL { ?pays wdt:P36 ?capitale. }
+  
+  # Optionnel : obtenir le code ISO 3166-1 alpha-2
+  OPTIONAL { ?pays wdt:P297 ?codeISO2. }
+  
+  # Service pour les labels en français
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "fr,en". 
+  }
+}
+ORDER BY ?paysLabel
+```
+
+This query will return African countries with their capitals and ISO codes. Simply copy and paste it into the editor and click "Run Query" to see the results.
+
 ## Folder Structure
 
 - `public/` - Static assets
