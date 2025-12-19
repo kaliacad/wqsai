@@ -17,6 +17,7 @@ export function LanguageSelector() {
     { lang: "fr", name: "Français", flag: "🇫🇷" },
     { lang: "sw", name: "Kiswahili", flag: "🇨🇩" },
     { lang: "es", name: "Español", flag: "🇪🇸" },
+    { lang: "ar", name: "العربية", flag: "🇸🇦" },
   ];
 
   const changeLanguage = (lang) => {
