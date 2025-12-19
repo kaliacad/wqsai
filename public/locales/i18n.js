@@ -6,6 +6,7 @@ import frLang from "../locales/fr/fr.json";
 import esLang from "../locales/es/es.json";
 import swLang from "../locales/sw/sw.json";
 import arLang from "../locales/ar/ar.json";
+import yoLang from '../locales/yo/yo.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { init } from '../../src/functions';
 
@@ -15,7 +16,7 @@ let lang = null;
 lang = window.localStorage.getItem('lang') || null;
 
 i18n
- 
+
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -25,7 +26,8 @@ i18n
       // ADD: Register Spanish
       es: { translation: esLang },
       sw: { translation: swLang },
-      ar: { translation: arLang }
+      ar: { translation: arLang },
+      yo: { translation: yoLang },
       // es: { translation: esLang },
       // pt: { translation: ptLang },
       // zh_CN: { translation: zh_CNLang },
